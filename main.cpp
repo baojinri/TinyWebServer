@@ -1,19 +1,21 @@
+//frok
+
 #include "config.h"
 
 int main(int argc, char *argv[])
 {
-    //需要修改的数据库信息,登录名,密码,库名
+    //需要修改的数据库信�?,登录�?,密码,库名
     string user = "root";
     string passwd = "root";
     string databasename = "qgydb";
 
-    //命令行解析
+    //命令行解�?
     Config config;
     config.parse_arg(argc, argv);
 
     WebServer server;
 
-    //初始化
+    //初�?�化
     server.init(config.PORT, user, passwd, databasename, config.LOGWrite, 
                 config.OPT_LINGER, config.TRIGMode,  config.sql_num,  config.thread_num, 
                 config.close_log, config.actor_model);
@@ -22,10 +24,10 @@ int main(int argc, char *argv[])
     //日志
     server.log_write();
 
-    //数据库
+    //数据�?
     server.sql_pool();
 
-    //线程池
+    //线程�?
     server.thread_pool();
 
     //触发模式
@@ -34,7 +36,7 @@ int main(int argc, char *argv[])
     //监听
     server.eventListen();
 
-    //运行
+    //运�??
     server.eventLoop();
 
     return 0;
